@@ -1,0 +1,135 @@
+/* COLOR PALETTE 
+-------------------------------------*/
+:root{
+    --DARK_PURPLE: #210F37;
+    --PURPLE:#4F1C51;
+    --LIGHT_PURPLE:#a843ab;
+    --HIGHLIGHT:#FACC15;
+}
+
+/* GLOBAL 
+----------------------------------------------*/
+html{
+    box-sizing: border-box;
+
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #a843ab;
+
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+} /* border box by default */
+
+.content-wrapper{
+    margin: 0 auto;
+    min-height: 900px;
+}
+/* HOME  
+---------------------------------------------*/
+/* navigation */
+.navbar{ 
+    background-color: var(--DARK_PURPLE);
+    display: flex;
+    justify-content: space-between;
+}
+.navbar p{
+    margin-left: 30px;
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+.navbar .navi{
+    list-style-type: none;
+    display: flex; 
+    gap: 10px;
+    margin-right: 30px;  
+}
+.navi li.navi-item{
+    border: solid 1px;
+    border-radius: 10px;
+   padding: 0;
+}
+.navi-item a{
+    display: block;
+     padding: 12px 10px 10px;
+     text-decoration: none;
+     color:whitesmoke;
+}
+.navi-item a:hover{
+    background-color: var(--LIGHT_PURPLE);
+    border-radius: 10px;
+}
+
+/* Introduction */
+.content-wrapper .intro{
+    border: solid 1px;
+    display: flex;
+    height: 70%;
+    background-color: var(--PURPLE);
+}
+ .intro .int-col{
+    flex: 1;  
+ }
+
+ .intro .picture{
+    padding: 10px;
+     display: flex;
+    justify-content: center;
+    width: 100%;
+  height: 100%;
+  
+    /* clip-path: url(#blob); */
+ }
+ .intro .profile-blob {
+    display: block;
+    padding: 20px;
+   width: 500px;
+   height: 500px;
+   background: url(./images/angel_headshot.jpg);
+   background-color: azure;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+   overflow: hidden;
+   box-shadow: 0 20px 5px 5px rgb(0,0,0,0,2);
+   animation: blob 5s ease-in-out infinite;
+   transition: all 2s ease-in-out;
+ }
+ @keyframes blob {
+    0%{
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    50%{
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    100%{
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    
+ }
+ .intro-content{
+   margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+.punchline{
+    margin: 0;
+}
+.punchline .name{
+    color: azure;
+ }
+
+/* PROJECTS
+---------------------------------------*/
+
+/* FOOTER
+--------------------------------------------*/
+.footer{
+    background-color: var(--DARK_PURPLE);
+    height: 150px;
+}

@@ -12,15 +12,15 @@ export default function ContactSection() {
                 <div className="flex gap-4 items-center md:items-stretch  flex-col md:flex-row pb-24 pt-20">
                     <div className="flex-1 space-y-8 flex-col">
                         <div className="flex-col gap-4">
-                            <label for="name "className="block mb-2 text-lg font-medium ">Name</label>
+                            <label htmlFor="name "className="block mb-2 text-lg font-medium ">Name</label>
                             <input id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Enter your name"></input>
                         </div>
                         <div className="flex-col gap-4">
-                            <label for="email"className="block mb-2 text-lg font-medium ">Email</label>
+                            <label htmlFor="email"className="block mb-2 text-lg font-medium ">Email</label>
                             <input id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="email" placeholder="Enter your email"></input>
                         </div>
                         <div className="flex-col gap-4">
-                            <label for="message"className="block mb-2 text-lg font-medium ">Message</label>
+                            <label htmlFor="message"className="block mb-2 text-lg font-medium ">Message</label>
                             <textarea id="message" className="h-30 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" placeholder="Write your message"></textarea>
                         </div>
                     </div>

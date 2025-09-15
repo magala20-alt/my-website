@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
-
+import {motion} from "framer-motion";
 const technologies= [
     {
         image:`/images/CProgramming.png`,
@@ -9,9 +9,42 @@ const technologies= [
     {
         image:`/images/CSS.png`,
         technology:"CSS"
-    }
+    },
+     {
+        image:`/images/CSS.png`,
+        technology:"CSS"
+    },
+     {
+        image:`/images/CSS.png`,
+        technology:"CSS"
+    },
+     {
+        image:`/images/CSS.png`,
+        technology:"CSS"
+    },
+     {
+        image:`/images/CSS.png`,
+        technology:"CSS"
+    },
 
 ];
+
+
+const fadeInVariants= (index) => ({
+    initial :{
+        opacity: 0,
+        y:100
+    },
+    animate: {
+        opacity: 1,
+        y:0,
+        transition: {
+            duration:0.07*index,
+        }
+
+    }
+})
+
 export default function Intro() {
   return (
     <>
@@ -76,16 +109,25 @@ function AboutMe(){
                 <div className="mt-10">
                     <h2 className="text-2xl">Technologies and Tools</h2>
                     <p>Using these technologies, I was able to build user-focused web-apps</p>
-                    <div className="grid grid-cols-5 gap-4 techStack">
+                    <ul className="grid grid-cols-5 gap-4 mt-5 techStack">
                         {technologies.map((technology,index)=> (
-                            <div className="h-9 flex" key={index}>
+                            <motion.li 
+                            variants= {fadeInVariants(index)}
+                            initial="initial"
+                            whileInView="animate"
+                            viewport={{
+                                once:false,
+                                amount:0.1,
+                                }}
+                            className="h-12 p-1 bg-purple-950 rounded-xl flex" 
+                            key={index}>
                                 <div className="h-9 w-9">
                                     <img src={technology.image} className="h-full w-full" alt="technology"/>
                                 </div>
-                                <p>{technology.technology} </p>
-                            </div>
+                                <p className="p-2">{technology.technology} </p>
+                            </motion.li>
                         ))}
-                    </div>
+                    </ul>
                         
                 </div>
                 

@@ -1,6 +1,5 @@
 const projects=[
     {
-        key: 1,
         name: "Simple Calculator",
         tags: ["C programming","React"],
         demoUrl: "#",
@@ -25,8 +24,8 @@ export default function ProjectsSection(){
                             </div>
                             <div className="p-6">
                                 <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.tags.map((tag)=>(
-                                        <span className="px-2 py-1 text-xs font-medium rounded-full">{tag}</span>
+                                    {project.tags.map((tag,index)=>(
+                                        <span className="px-2 py-1 text-xs font-medium rounded-full"key={index}>{tag}</span>
                                     ))}
                                 </div>
 

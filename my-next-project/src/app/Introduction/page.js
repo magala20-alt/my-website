@@ -1,6 +1,17 @@
 'use client'
 import { useState, useEffect } from "react";
 
+const technologies= [
+    {
+        image:`/images/CProgramming.png`,
+        technology:"C Programming"
+    },
+    {
+        image:`/images/CSS.png`,
+        technology:"CSS"
+    }
+
+];
 export default function Intro() {
   return (
     <>
@@ -54,7 +65,7 @@ function AboutMe(){
     return (
         <div className="w-full aboutMe">
             <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 px-4 md:mt-0 pt-24 pb-12 ">
-                <h1 className="text-4xl text-center">About Me</h1>
+                <h1 className="text-4xl md:text-4xl font-bold md-4 text-center">About Me</h1>
                 <div className="mt-12">
                     <p className="text-justify">I’m a passionate Software Developer with skills in Java, SQL, Python, C, and C#. Skilled in designing 
     and developing user-friendly automation programs to enhance efficiency and streamline processes. 
@@ -66,11 +77,16 @@ function AboutMe(){
                     <h2 className="text-2xl">Technologies and Tools</h2>
                     <p>Using these technologies, I was able to build user-focused web-apps</p>
                     <div className="grid grid-cols-5 gap-4 techStack">
-                        <div className={`tech-card ${isVisible ? 'bounce-in':''}`}>CSS</div>
-                        <div className={`tech-card ${isVisible ? 'bounce-in':''}`}>React</div>
-                        <div className={`tech-card ${isVisible ? 'bounce-in':''}`}>Python</div>
-                        <div className={`tech-card ${isVisible ? 'bounce-in':''}`}>Javascript</div>
+                        {technologies.map((technology,index)=> (
+                            <div className="h-9 flex" key={index}>
+                                <div className="h-9 w-9">
+                                    <img src={technology.image} className="h-full w-full" alt="technology"/>
+                                </div>
+                                <p>{technology.technology} </p>
+                            </div>
+                        ))}
                     </div>
+                        
                 </div>
                 
             </div>

@@ -89,7 +89,7 @@ html, body{
     padding: 20px;
    width: 500px;
    height: 500px;
-   background: url(./images/angel_headshot.jpg);
+   background: url('/images/angel_headshot.jpg');
    background-color: azure;
    background-size: contain;
    background-repeat: no-repeat;

@@ -1,22 +1,29 @@
-'use client'
-import { useState, useEffect } from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 //import {motion} from "framer-motion";
-import { technologies,frameworks,Concepts,TabComponents } from "./TabComponents";
+import {TabComponents } from "./TabComponents";
 
 
 export default function Intro() {
   return (
     <>
-        <div className="flex w-full justify-evenly">
+        <div className="flex w-full gap-3 justify-evenly">
         <div className=" content-center  ">
             <div className="intro-content">
             <div className="punchline">
                 <div className=" font-bold name">
-                <h1 className="text-4xl">Hi I'm Angel Ashley Kisaakye</h1>
+                <h1 className="text-2xl">Hi I'm Angel Ashley Kisaakye</h1>
                 </div>
                 <div className="career">
-                <h2 className="font-medium">Front-end Developer</h2>
+                <h2 className="text-3xl">Front-end Developer</h2>
                 </div>
+                <div className="mt-4 mb-4 w-120">
+                    <p className="text-justify">I’m a passionate Software Developer with skills in Java, SQL, Python, C, and C#. Skilled in designing 
+    and developing user-friendly automation programs to enhance efficiency and streamline processes. 
+ Enthusiastic, committed to continuous learning and innovation in 
+    software development.</p>
+                </div>
+                
             </div>
             
             <div className=" flex  align-center gap-30 socials">
@@ -38,41 +45,52 @@ export default function Intro() {
             </div>
         </div>   
         </div>
-        <AboutMe/>
+        <TechStack/>
     </>
     
   
   );
 }
 
-function AboutMe(){
-    const [isVisible, setIsVisible]= useState(false);
+function TechStack() {
+    const [activeTab, setActiveTab] = useState(0);
+    const tabRefs = TabComponents.map(() => React.createRef());
 
-    useEffect(()=>{
-        const timer= setTimeout(()=>{
-            setIsVisible(true);
-        },100);
-        return ()=>clearTimeout(timer);
-    }, []);
+    useEffect(() => {
+        if (tabRefs[activeTab] && tabRefs[activeTab].current) {
+            tabRefs[activeTab].current.focus();
+        }
+    }, [activeTab]);
+
     return (
         <div className="w-full aboutMe">
-            <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8 px-4 md:mt-0 pt-24 pb-12 ">
-                <h1 className="text-4xl md:text-4xl font-bold md-4 text-center">About Me</h1>
-                <div className="mt-12">
-                    <p className="text-justify">I’m a passionate Software Developer with skills in Java, SQL, Python, C, and C#. Skilled in designing 
-    and developing user-friendly automation programs to enhance efficiency and streamline processes. 
-    Adept at problem-solving, writing clean and efficient code, and collaborating with teams to deliver 
-    high-quality software solutions. Enthusiastic, committed to continuous learning and innovation in 
-    software development.</p>
+            <div className="max-w-7xl  mx-auto sm:px-6 lg:px-8 px-4 md:mt-0 pt-24 pb-12 ">
+                <div className="mt-3">
+                    <h2 className="text-3xl text-center">Technologies and Tools</h2>
+                    <p className="text-center">Using these technologies, I was able to build user-focused web-apps</p>
+                     <div className="mt-6 flex flex-col items-center">
+                            <div className="flex justify-center p-2 gap-2 rounded-xl bg-purple-900 techStack">
+                                {TabComponents.map((tech, index) => (
+                                    <button
+                                                key={index}
+                                                ref={tabRefs[index]}
+                                                className={`outline-none rounded-xl text-purple-200 px-3 py-1 min-w-[90px] text-sm transition-colors duration-200 ${
+                                                    activeTab === index
+                                                        ? 'bg-purple-300 text-purple-900 font-bold border-2 border-white'
+                                                        : 'hover:bg-purple-300 focus:hover:bg-purple-300'
+                                                }`}
+                                                onClick={() => setActiveTab(index)}
+                                            >
+                                                {tech.title}
+                                    </button>
+                                ))}
+                            </div>
+                            <div className="mt-4 w-300 bg-purple-500/10 p-4 rounded-lg">
+                                {TabComponents[activeTab].content()}
+                            </div>
+                    </div>
+                               
                 </div>
-                <div className="mt-10">
-                    <h2 className="text-2xl">Technologies and Tools</h2>
-                    <p>Using these technologies, I was able to build user-focused web-apps</p>
-                   <div className="mt-6  ">
-
-                   </div>
-                </div>
-                
             </div>
         </div>
     );
